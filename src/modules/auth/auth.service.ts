@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Account } from './account.schema';
 import { Model } from 'mongoose';
@@ -46,6 +46,9 @@ export class AuthService {
         const isPassword = bcryptHelper.comparePassword(loginDto.password, findAccount.password)
         if (!isPassword) {
             throw new BadRequestException('password is wrong')
+        }
+        if (!findAccount.isValidEmail) {
+            throw new ForbiddenException('account does valid email OTP')
         }
         return findAccount
     }

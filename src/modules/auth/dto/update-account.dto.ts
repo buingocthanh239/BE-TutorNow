@@ -7,7 +7,6 @@ import {
     IsStrongPassword,
     IsUrl,
 } from 'class-validator';
-import { UserTypes } from 'src/common/enum/base.enum';
 
 export class UpdateAccountDto {
     @IsOptional()
@@ -19,9 +18,4 @@ export class UpdateAccountDto {
     @IsString()
     @IsUrl()
     avatar?: string;
-
-    @IsOptional()
-    @IsString()
-    @IsStrongPassword()
-    password?: string;
 }
