@@ -1,5 +1,5 @@
-import { Exclude, Expose } from "class-transformer";
-import { BaseDto } from "src/common/dto";
+import { Exclude, Expose } from 'class-transformer';
+import { BaseDto } from 'src/common/dto';
 
 export class AccountDto extends BaseDto {
     @Expose() email: string;

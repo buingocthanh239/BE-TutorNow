@@ -1,5 +1,11 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsString, IsStrongPassword } from "class-validator";
-import { UserTypes } from "src/common/enum/base.enum";
+import {
+    IsEmail,
+    IsEnum,
+    IsNotEmpty,
+    IsString,
+    IsStrongPassword,
+} from 'class-validator';
+import { UserTypes } from 'src/common/enum/base.enum';
 
 export class RegisterDto {
     @IsString()
@@ -16,5 +22,5 @@ export class RegisterDto {
 
     @IsString()
     @IsEnum(UserTypes)
-    type: UserTypes
+    type: UserTypes;
 }

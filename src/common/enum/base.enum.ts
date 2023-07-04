@@ -3,4 +3,4 @@ export enum UserTypes {
     STUDENT = 'student',
     TUTOR = 'tutor',
     GUARDIAN = 'guardian',
-} 
+}

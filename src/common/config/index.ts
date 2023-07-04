@@ -1,2 +1,2 @@
 export * from './app.config';
-export * from './mongo.cofig'
+export * from './mongo.cofig';
