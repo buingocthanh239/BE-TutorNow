@@ -3,12 +3,17 @@ import { IsDate, IsOptional, IsString } from 'class-validator';
 
 export class BaseDto {
     @Expose()
-    @IsString()
-    createdBy: string;
+    id: string;
 
     @Expose()
     @IsString()
-    updatedBy: string;
+    @IsOptional()
+    createdBy?: string;
+
+    @Expose()
+    @IsOptional()
+    @IsString()
+    updatedBy?: string;
 
     @Expose()
     @IsString()

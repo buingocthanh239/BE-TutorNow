@@ -18,14 +18,17 @@ import { appConfig } from './common/config';
 import { ConfigModule } from '@nestjs/config';
 import { APP_PIPE } from '@nestjs/core';
 import { parseValidateErrors } from './common/utils/common';
+import { mongoDbConfig } from './common/config/mongo.cofig';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
             envFilePath: ['.env'],
-            load: [appConfig],
+            load: [appConfig, mongoDbConfig],
         }),
+        MongooseModule.forRoot(mongoDbConfig().url),
         AuthModule,
         ConsultsModule,
         ClassesModule,

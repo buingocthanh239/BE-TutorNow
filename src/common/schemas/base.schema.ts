@@ -1,11 +1,11 @@
 import { Prop } from '@nestjs/mongoose';
 
 export class BaseSchema {
-    @Prop({ required: true })
-    createdBy: string;
+    @Prop()
+    createdBy?: string;
 
-    @Prop({ required: true })
-    updatedBy: string;
+    @Prop()
+    updatedBy?: string;
 
     @Prop()
     deletedBy?: string;
