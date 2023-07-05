@@ -16,10 +16,11 @@ import { RatesModule } from './modules/rates/rates.module';
 import { ProfilesModule } from './modules/profiles/profiles.module';
 import { appConfig } from './common/config';
 import { ConfigModule } from '@nestjs/config';
-import { APP_PIPE } from '@nestjs/core';
+import { APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { parseValidateErrors } from './common/utils/common';
 import { mongoDbConfig } from './common/config/mongo.cofig';
 import { MongooseModule } from '@nestjs/mongoose';
+import { RolesGuard } from './modules/auth/guards/role.guard';
 
 @Module({
     imports: [
@@ -55,6 +56,10 @@ import { MongooseModule } from '@nestjs/mongoose';
                 },
             }),
         },
+        { 
+            provide: APP_GUARD,
+            useClass: RolesGuard
+        }
     ],
 })
 export class AppModule {}
