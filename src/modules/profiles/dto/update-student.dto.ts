@@ -1,5 +1,13 @@
-import { IsEnum, IsISO8601, IsMongoId, IsNotEmpty, IsOptional, IsPhoneNumber, IsString } from "class-validator";
-import { Gender } from "src/common/enum/base.enum";
+import {
+    IsEnum,
+    IsISO8601,
+    IsMongoId,
+    IsNotEmpty,
+    IsOptional,
+    IsPhoneNumber,
+    IsString,
+} from 'class-validator';
+import { Gender } from 'src/common/enum/base.enum';
 
 export class UpdateStudentDto {
     @IsOptional()
@@ -10,7 +18,7 @@ export class UpdateStudentDto {
     @IsOptional()
     @IsString()
     @IsEnum(Gender)
-    readonly gender: Gender
+    readonly gender: Gender;
 
     @IsOptional()
     @IsString()

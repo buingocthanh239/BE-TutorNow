@@ -10,20 +10,23 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
     imports: [
-        MongooseModule.forFeature([{ name: Account.name, schema: AccountSchema}]),
+        MongooseModule.forFeature([
+            { name: Account.name, schema: AccountSchema },
+        ]),
         PassportModule,
-       
+
         JwtModule.registerAsync({
-            imports: [ ConfigModule],
+            imports: [ConfigModule],
             useFactory: async (configService: ConfigService) => ({
                 secret: configService.get<string>('SECRET_KEY'),
-                signOptions: { expiresIn: configService.get<string>('EXPIRES')}
+                signOptions: {
+                    expiresIn: configService.get<string>('EXPIRES'),
+                },
             }),
-            inject: [ConfigService]
-            
-        })
+            inject: [ConfigService],
+        }),
     ],
     controllers: [AuthController],
-    providers: [AuthService,JwtStrategy],
+    providers: [AuthService, JwtStrategy],
 })
 export class AuthModule {}

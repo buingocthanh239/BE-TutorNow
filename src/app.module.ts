@@ -56,10 +56,10 @@ import { RolesGuard } from './modules/auth/guards/role.guard';
                 },
             }),
         },
-        { 
+        {
             provide: APP_GUARD,
-            useClass: RolesGuard
-        }
+            useClass: RolesGuard,
+        },
     ],
 })
 export class AppModule {}

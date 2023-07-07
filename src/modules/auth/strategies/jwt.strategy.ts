@@ -4,21 +4,21 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor() {
-    super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
-      secretOrKey: process.env.SECRET_KEY,
-    });
-  }
+    constructor() {
+        super({
+            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+            ignoreExpiration: false,
+            secretOrKey: process.env.SECRET_KEY,
+        });
+    }
 
-  async validate(payload: any) {
-    return { 
-        userId: payload.sub, 
-        username: payload.username,
-        email: payload.email,
-        type: payload.type,
-        avatar: payload.avatar
-    };
-  }
+    async validate(payload: any) {
+        return {
+            userId: payload.sub,
+            username: payload.username,
+            email: payload.email,
+            type: payload.type,
+            avatar: payload.avatar,
+        };
+    }
 }

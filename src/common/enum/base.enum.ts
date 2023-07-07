@@ -4,3 +4,9 @@ export enum UserTypes {
     TUTOR = 'tutor',
     GUARDIAN = 'guardian',
 }
+
+export enum Gender {
+    MALE = 'Male',
+    FEMALE = 'Female',
+    OTHER = 'Other',
+}

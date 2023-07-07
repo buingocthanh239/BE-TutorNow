@@ -1,6 +1,4 @@
 import {
-    IsEnum,
-    IsISO8601,
     IsMongoId,
     IsNotEmpty,
     IsOptional,
@@ -9,23 +7,20 @@ import {
 } from 'class-validator';
 import { Gender } from 'src/common/enum/base.enum';
 
-export class CreateStudentDto {
+export class CreateGuardianDto {
     @IsMongoId()
     accountId: string;
 
+    @IsOptional()
     @IsString()
     @IsNotEmpty()
-    name: string;
-
-    @IsString()
-    @IsEnum(Gender)
-    gender: Gender;
-
-    @IsString()
-    @IsPhoneNumber('VN')
-    phone: string;
+    name?: string;
 
     @IsOptional()
-    @IsISO8601()
-    dob?: Date;
+    @IsString()
+    @IsNotEmpty()
+    gender?: Gender;
+
+    @IsPhoneNumber()
+    phone: string;
 }

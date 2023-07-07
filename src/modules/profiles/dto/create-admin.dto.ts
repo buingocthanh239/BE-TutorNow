@@ -1,6 +1,6 @@
-import { IsArray, IsEnum, IsMongoId } from "class-validator";
-import { Role } from "src/common/enum/roles.enum";
-import { Type } from "class-transformer";
+import { IsArray, IsEnum, IsMongoId } from 'class-validator';
+import { Role } from 'src/common/enum/roles.enum';
+import { Type } from 'class-transformer';
 
 export class CreateAdminDto {
     @IsMongoId()
@@ -13,5 +13,5 @@ export class CreateAdminDto {
 export class CreateAdminDetailDto {
     @IsArray()
     @IsEnum(Role)
-    roles: Role[]
+    roles: Role[];
 }
